@@ -1,0 +1,117 @@
+<link href="//netdna.bootstrapcdn.com/bootstrap/3.1.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<script src="//netdna.bootstrapcdn.com/bootstrap/3.1.0/js/bootstrap.min.js"></script>
+<script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+<!------ Include the above in your HEAD tag ---------->
+<app-navbar></app-navbar>
+    <div class="container">
+        <h1 >{{kanban.title}}</h1>
+        <div id="sortableKanbanBoards" class="row">
+            <div class="col col-xs-12 text-right">
+                <button type="button" (click)="openDialogForNewTask()"class="btn btn-sm btn-primary btn-create">+ Create New Task</button>
+            </div>
+            
+                <div class="panel panel-primary kanban-col">
+                    <div class="panel-heading">
+                        TO DO
+                        <i class="fa fa-2x fa-plus-circle pull-right"></i>
+                    </div>
+                    <div class="panel-body">
+                        <div cdkDropList
+                        [cdkDropListData]="todos"
+                        [cdkDropListConnectedTo]="['inpro', 'done']"
+                        class="board-list"
+                        (cdkDropListDropped)="drop($event)" id="todo" class="kanban-centered">
+
+                            <article *ngFor="let task of todos" cdkDrag
+                            id="{{task.id}}" class="kanban-entry grab" draggable="true">
+                                <div class="kanban-entry-inner">
+                                    <div class="kanban-label">
+                                        <h2><a (click)="openTaskDialog(task.id)">{{task.title}}</a>
+                                            <button mat-raised-button (click)="DeleteTask(task.id)"type="button" class="close" aria-label="Close" >
+                                                <span aria-hidden="true">&times;</span>
+                                            </button>
+                                        </h2>
+                                        <p>{{task.date}}</p>
+                                        <p>{{task.description}}</p>
+                                    </div>
+                                </div>
+                            </article>
+
+                        </div>
+                    </div>
+                    
+                </div>
+                
+                <div class="panel panel-primary kanban-col">
+                    <div class="panel-heading">
+                        IN PROGRESS
+                        <i class="fa fa-2x fa-plus-circle pull-right"></i>
+                    </div>
+                    <div class="panel-body">
+                        <div cdkDropList
+                        id="inpro"
+                        [cdkDropListData]="inprogress"
+                        [cdkDropListConnectedTo]="['todo', 'done']"
+                        class="board-list"
+                        (cdkDropListDropped)="drop($event)" class="kanban-centered">
+
+                            <article *ngFor="let task of inprogress" cdkDrag
+                             id="{{task.id}}" class="kanban-entry grab" draggable="true">
+                                <div class="kanban-entry-inner">
+                                    <div class="kanban-label">
+                                        <h2><a (click)="openTaskDialog(task.id)">{{task.title}}</a>
+                                            <button mat-raised-button (click)="DeleteTask(task.id)"type="button" class="close" aria-label="Close" >
+                                                <span aria-hidden="true">&times;</span>
+                                            </button>
+                                        </h2>
+                                        <p>{{task.date}}</p>
+                                        <p>{{task.description}}</p>
+                                    </div>
+                                </div>
+                            </article>
+
+                        </div>
+                    </div>
+                    
+                </div>
+                
+                <div class="panel panel-primary kanban-col">
+                    <div class="panel-heading">
+                        DONE
+                        <i class="fa fa-2x fa-plus-circle pull-right"></i>
+                    </div>
+                    <div class="panel-body">
+                        <div cdkDropList
+                        id="done"
+                        [cdkDropListData]="dones"
+                        [cdkDropListConnectedTo]="['todo', 'inpro']"
+                        class="board-list"
+                        (cdkDropListDropped)="drop($event)" class="kanban-centered">
+
+                            <article *ngFor="let task of dones" cdkDrag
+                            id="{{task.id}}" class="kanban-entry grab" draggable="true">
+                                <div class="kanban-entry-inner">
+
+                                    <div class="kanban-label">
+                                        <h2><a (click)="openTaskDialog(task.id)">{{task.title}}</a>
+                                            <button mat-raised-button (click)="DeleteTask(task.id)"type="button" class="close" aria-label="Close">
+                                                <span aria-hidden="true">&times;</span>
+                                            </button>
+                                        </h2>
+                                        <p>{{task.date}}</p>
+                                        <p>{{task.description}}</p>
+                                    </div>
+                                </div>
+                            </article>
+
+                        </div>
+                    </div>
+                </div>
+
+            
+        </div>
+    </div>
+
+    
+
+    

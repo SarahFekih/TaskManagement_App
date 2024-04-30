@@ -1,0 +1,53 @@
+<link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
+<script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+<!------ Include the above in your HEAD tag ---------->
+
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.4.0/css/font-awesome.min.css" rel='stylesheet' type='text/css'>
+<app-navbar></app-navbar>
+<div class="container">
+    <div class="row">
+    
+    <h1 style="margin-top: 15px;">Kanban Boards</h1>
+    
+        <div class="col-md-10 col-md-offset-1">
+
+            <div class="panel panel-default panel-table">
+              <div class="panel-heading">
+                <div class="row">
+                  <div class="col col-xs-6">
+                    <h3 class="panel-title">List of Kanban Boards</h3>
+                  </div>
+                  <div class="col col-xs-6 text-right">
+                    <button type="button" class="btn btn-sm btn-primary btn-create" (click)="openDialogForNewKanban()">+ Create New Kanban Board</button>
+                  </div>
+                </div>
+              </div>
+              <div class="panel-body">
+                <table class="table table-striped table-bordered table-list">
+                  <thead>
+                    <tr>
+                        <th><em class="fa fa-cog"></em></th>
+                        <th>ID</th>
+                        <th>Project</th>
+                        
+                    </tr> 
+                  </thead>
+                  <tbody *ngFor="let kanban of kanbanList">
+                          <tr>
+                            <td align="center">
+                              <a class="btn btn-default" routerLink="/kanban/{{kanban.id}}"><em class="fa fa-pencil"></em></a>
+                              <a class="btn btn-danger" (click)="DeleteKanban(kanban.id);"><em class="fa fa-trash"></em></a>
+                            </td>
+                            <td>{{kanban.id}}</td>
+                            <td>{{kanban.title}}</td>
+                          </tr>
+                        </tbody>
+                </table>
+            
+              </div>
+              <div class="panel-footer">
+                
+            </div>
+
+</div></div></div>

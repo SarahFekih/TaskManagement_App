@@ -1,0 +1,102 @@
+.box {
+    width: 500px;
+    margin: 140px 0;
+}
+.title-header:before {
+    border-top: 2px solid #288dd0dc;
+    content: "";
+    left: 0;
+    position: absolute;
+    right: 0;
+    top: 50%;
+}
+
+.title-header h1 {
+    background: #fff;
+    color: #363636;
+    display: inline-block;
+    font-weight: 600;
+    line-height: 40px;
+    margin: 0;
+    padding: 0 30px;
+    position: relative;
+    text-transform: uppercase;
+    border: 2px solid #288dd0dc;
+}
+.shape1{
+    position: relative;
+    height: 150px;
+    width: 150px;
+    background-color: #0074d9;
+    border-radius: 80px;
+    float: left;
+    margin-right: -50px;
+}
+.shape2 {
+    position: relative;
+    height: 150px;
+    width: 150px;
+    background-color: #0074d9;
+    border-radius: 80px;
+    margin-top: -30px;
+    float: left;
+}
+.shape3 {
+    position: relative;
+    height: 150px;
+    width: 150px;
+    background-color: #0074d9;
+    border-radius: 80px;
+    margin-top: -30px;
+    float: left;
+    margin-left: -31px;
+}
+.shape4 {
+    position: relative;
+    height: 150px;
+    width: 150px;
+    background-color: #0074d9;
+    border-radius: 80px;
+    margin-top: -25px;
+    float: left;
+    margin-left: -32px;
+}
+.shape5 {
+    position: relative;
+    height: 150px;
+    width: 150px;
+    background-color: #0074d9;
+    border-radius: 80px;
+    float: left;
+    margin-right: -48px;
+    margin-left: -32px;
+    margin-top: -30px;
+}
+.shape6 {
+    position: relative;
+    height: 150px;
+    width: 150px;
+    background-color: #0074d9;
+    border-radius: 80px;
+    float: left;
+    margin-right: -20px;
+    margin-top: -35px;
+}
+.shape7 {
+    position: relative;
+    height: 150px;
+    width: 150px;
+    background-color: #0074d9;
+    border-radius: 80px;
+    float: left;
+    margin-right: -20px;
+    margin-top: -57px;
+}
+.float {
+    position: absolute;
+    z-index: 2;
+}
+
+.form {
+    margin-left: 145px;
+}
